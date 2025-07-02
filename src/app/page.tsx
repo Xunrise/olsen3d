@@ -6,26 +6,20 @@ import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { useEffect } from "react";
+import styles from "./page.module.css";
+import { useHasMounted } from "./hooks/useHasMounted";
 
 export default function Home() {
+  const hasMounted = useHasMounted();
+
   useEffect(() => {
     // Font Awesome CDN
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css";
     document.head.appendChild(link);
-    // Theme toggle logic
-    const themeToggle = document.getElementById("theme-toggle");
-    const icon = themeToggle?.querySelector("i");
+    // Scroll event for header
     const header = document.getElementById("header");
-    const updateIcon = (isDark) => {
-      if (icon) icon.className = isDark ? "fas fa-sun" : "fas fa-moon";
-    };
-    const savedTheme = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
-    if (savedTheme) {
-      document.documentElement.setAttribute("data-theme", savedTheme);
-      updateIcon(savedTheme === "dark");
-    }
     const onScroll = () => {
       if (window.scrollY > 50) {
         header?.classList.add("scrolled");
@@ -34,18 +28,14 @@ export default function Home() {
       }
     };
     window.addEventListener("scroll", onScroll);
-    themeToggle?.addEventListener("click", () => {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-      updateIcon(newTheme === "dark");
-    });
     return () => {
       window.removeEventListener("scroll", onScroll);
       document.head.removeChild(link);
     };
   }, []);
+
+  if (!hasMounted) return null;
+
   return (
     <>
       <Header />
