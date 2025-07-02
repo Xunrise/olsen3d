@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- No background fill - transparent -->
+  <!-- Made the viewBox square (500x500) for profile picture usage -->
+  
+  <!-- Center the content in the square frame -->
+  <g transform="translate(250, 250)">
+    <!-- Shadow/extrusion effect - cleaner version -->
+    <text x="-4" y="4" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="70" text-anchor="middle" fill="#E6D8F2">Olsen3D</text>
+    
+    <!-- Main text -->
+    <text font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="70" text-anchor="middle" fill="#2C3E50">Olsen<tspan fill="#8E44AD">3D</tspan></text>
+    
+    <!-- 3D cube integrated with the "3D" part - now in purple -->
+    <g transform="translate(90, -10) scale(0.7)">
+      <!-- Top face -->
+      <polygon points="0,0 20,-10 40,0 20,10" fill="#8E44AD" stroke="#2C3E50" stroke-width="1.5"/>
+      
+      <!-- Left face -->
+      <polygon points="0,0 0,20 20,30 20,10" fill="#7D3C98" stroke="#2C3E50" stroke-width="1.5"/>
+      
+      <!-- Right face -->
+      <polygon points="20,10 40,0 40,20 20,30" fill="#6C3483" stroke="#2C3E50" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

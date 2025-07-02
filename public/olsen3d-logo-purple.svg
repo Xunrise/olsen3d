@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200">
+  <!-- No background fill - transparent -->
+  
+  <!-- Text with clean shadow effect -->
+  <g transform="translate(250, 100)">
+    <!-- Shadow/extrusion effect - cleaner version -->
+    <text x="-4" y="4" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="70" text-anchor="middle" fill="#E6D8F2">Olsen3D</text>
+    
+    <!-- Main text -->
+    <text font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="70" text-anchor="middle" fill="#2C3E50">Olsen<tspan fill="#8E44AD">3D</tspan></text>
+    
+    <!-- 3D cube integrated with the "3D" part - now in purple -->
+    <g transform="translate(90, -10) scale(0.7)">
+      <!-- Top face -->
+      <polygon points="0,0 20,-10 40,0 20,10" fill="#8E44AD" stroke="#2C3E50" stroke-width="1.5"/>
+      
+      <!-- Left face -->
+      <polygon points="0,0 0,20 20,30 20,10" fill="#7D3C98" stroke="#2C3E50" stroke-width="1.5"/>
+      
+      <!-- Right face -->
+      <polygon points="20,10 40,0 40,20 20,30" fill="#6C3483" stroke="#2C3E50" stroke-width="1.5"/>
+    </g>
+    
+    <!-- Main horizontal line -->
+    <line x1="-140" y1="20" x2="140" y2="20" stroke="#8E44AD" stroke-width="2"/>
+    
+    <!-- Circuit pattern elements -->
+    <line x1="-100" y1="20" x2="-100" y2="30" stroke="#8E44AD" stroke-width="2"/>
+    <line x1="-50" y1="20" x2="-50" y2="30" stroke="#8E44AD" stroke-width="2"/>
+    <line x1="0" y1="20" x2="0" y2="30" stroke="#8E44AD" stroke-width="2"/>
+    <line x1="50" y1="20" x2="50" y2="30" stroke="#8E44AD" stroke-width="2"/>
+    <line x1="100" y1="20" x2="100" y2="30" stroke="#8E44AD" stroke-width="2"/>
+    <circle cx="-100" cy="30" r="3" fill="#2C3E50"/>
+    <circle cx="-50" cy="30" r="3" fill="#2C3E50"/>
+    <circle cx="0" cy="30" r="3" fill="#2C3E50"/>
+    <circle cx="50" cy="30" r="3" fill="#2C3E50"/>
+    <circle cx="100" cy="30" r="3" fill="#2C3E50"/>
+    
+    <!-- Services text under logo with better visibility -->
+    <!-- Black text with thin white outline for visibility on any background -->
+    <text x="0" y="50" font-family="Arial, sans-serif" font-weight="bold" font-size="14" text-anchor="middle" fill="black" stroke="white" stroke-width="0.5" paint-order="stroke fill">3D-printing • Design • Kurs • Support</text>
+  </g>
+</svg>

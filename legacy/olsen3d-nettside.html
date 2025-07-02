@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olsen3D - IKT-tjenester og 3D-printing</title>
+    <style>
+        :root {
+            --bg-color: #f0f2f5;
+            --text-color: #333;
+            --card-bg: white;
+            --header-bg: #2c3e50;
+            --hero-bg: #3498db;
+            --section-bg: #ecf0f1;
+            --shadow-color: rgba(0,0,0,0.1);
+            --border-color: #ddd;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --card-bg: #2d2d2d;
+            --header-bg: #1a1a1a;
+            --hero-bg: #2980b9;
+            --section-bg: #2d2d2d;
+            --shadow-color: rgba(0,0,0,0.3);
+            --border-color: #404040;
+        }
+
+        /* Grunnleggende stil */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s, color 0.3s;
+            padding-top: 80px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px var(--shadow-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        header.scrolled {
+            padding: 0.5rem 0;
+            background-color: rgba(44, 62, 80, 0.95);
+        }
+        .logo {
+            margin-left: 20px;
+            background-color: var(--card-bg);
+            padding: 5px 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px var(--shadow-color);
+        }
+        .logo-image {
+            height: 50px;
+            width: auto;
+            vertical-align: middle;
+        }
+        /* Navigasjon */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-text {
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(0,0,0,0.4);
+            font-family: 'Arial', sans-serif;
+            position: relative;
+        }
+        .logo-text::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: white;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .logo-text:hover::after {
+            transform: scaleX(1);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-right: 30px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #3498db;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        /* Hero section */
+        .hero {
+            background-color: var(--hero-bg);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('tech-bakgrunn.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-logo {
+            max-width: 1100px;
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            filter: drop-shadow(0 0 15px rgba(0,0,0,0.4));
+        }
+        .hero-text {
+            font-size: 2rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-top: 1rem;
+        }
+        /* Tjenester */
+        .services {
+            padding: 4rem 0;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            justify-items: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            transition: transform 0.3s, background-color 0.3s;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+        .service-card h3 {
+            margin-top: 0;
+            color: var(--text-color);
+            text-align: center;
+        }
+        .service-card p {
+            text-align: center;
+            margin: 0;
+        }
+        /* Portfolio */
+        .portfolio {
+            background-color: var(--section-bg);
+            padding: 2rem 0;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        .portfolio-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(0);
+            transition: transform 0.3s;
+        }
+        .portfolio-item-overlay h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.4rem;
+        }
+        .portfolio-item-overlay p {
+            margin: 0;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        /* Kontakt */
+        .contact {
+            padding: 4rem 0;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+        .form-group textarea {
+            min-height: 150px;
+        }
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        .contact-info {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .contact-info p {
+            margin: 0;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #5dade2;
+            text-decoration: underline;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--hero-bg);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .section-title p {
+            color: var(--text-color);
+            max-width: 600px;
+            margin: 0.5rem auto 0;
+        }
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .service-grid, .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 1rem;
+            }
+            nav ul li {
+                margin-right: 15px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .service-grid, .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--card-bg);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        .theme-toggle i {
+            font-size: 24px;
+            color: var(--text-color);
+        }
+        /* About section */
+        .about {
+            padding: 4rem 0;
+            background-color: var(--section-bg);
+        }
+        .about-text {
+            color: var(--text-color);
+        }
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <button class="theme-toggle" id="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    <header>
+        <nav class="container">
+            <div class="logo-text">Olsen3D</div>
+            <ul>
+                <li><a href="#home">Hjem</a></li>
+                <li><a href="#services">Tjenester</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="olsen3d-logo.png" alt="Olsen3D Logo" class="hero-logo">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mine tjenester</h2>
+            </div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="3d-printing-bilde.png" alt="3D-printing">
+                    <div class="service-card-content">
+                        <h3>3D-printing og design</h3>
+                        <p>Design og produksjon av 3D-modeller. Fra idé til ferdig produkt - jeg hjelper deg med hele prosessen.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="kjopshjelp-bilde.png" alt="Veiledning">
+                    <div class="service-card-content">
+                        <h3>Veiledning</h3>
+                        <p>Kjøpshjelp for IKT-utstyr og reparasjon av småelektronikk. Jeg hjelper deg med å finne riktig utstyr og løse tekniske problemer.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="kursing-bilde.png" alt="Kursing">
+                    <div class="service-card-content">
+                        <h3>Kursing</h3>
+                        <p>Få mest mulig ut av teknologien din. Jeg tilbyr skreddersydd opplæring i bruk av IKT-utstyr.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Portfolio</h2>
+                <p>Se noen av mine tidligere prosjekter og arbeid.</p>
+            </div>
+            <div class="portfolio-grid">
+                <a href="portfolio/3d-design/index.html" class="portfolio-item">
+                    <img src="portfolio/3d-design/thumbnail.jpg" alt="3D-modell design">
+                    <div class="portfolio-item-overlay">
+                        <h3>3D-modell design</h3>
+                        <p>Se prosjekter innen 3D-modellering og design</p>
+                    </div>
+                </a>
+                <a href="portfolio/ikt-setup/index.html" class="portfolio-item">
+                    <img src="portfolio/ikt-setup/thumbnail.jpg" alt="IKT setup">
+                    <div class="portfolio-item-overlay">
+                        <h3>IKT Setup</h3>
+                        <p>Se prosjekter innen IKT-oppsett og løsninger</p>
+                    </div>
+                </a>
+                <a href="portfolio/3d-print/index.html" class="portfolio-item">
+                    <img src="portfolio/3d-print/thumbnail.jpg" alt="3D-print">
+                    <div class="portfolio-item-overlay">
+                        <h3>3D-utskrift</h3>
+                        <p>Se prosjekter innen 3D-printing og prototyping</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontakt meg</h2>
+                <p>Har du spørsmål eller ønsker et tilbud? Ta kontakt!</p>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Navn</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-post</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Emne</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Melding</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send melding</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="contact-info">
+                <p>E-post: <a href="mailto:post@olsen3d.no">post@olsen3d.no</a></p>
+                <p>Telefon: <a href="tel:+4748227272">+47 482 27 272</a></p>
+                <p>Adresse: Olderdalen, 9146</p>
+            </div>
+            <p>&copy; 2025 Olsen3D. Alle rettigheter reservert.</p>
+        </div>
+    </footer>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const icon = themeToggle.querySelector('i');
+        const header = document.querySelector('header');
+        
+        // Sjekk for lagret tema
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme === 'dark');
+        }
+
+        // Scroll event for header
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme === 'dark');
+        });
+
+        function updateIcon(isDark) {
+            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    </script>
+</body>
+</html>
