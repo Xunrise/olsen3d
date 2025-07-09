@@ -1,29 +1,31 @@
 import { useEffect, useState, useCallback } from 'react';
 
 export function useTheme() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+    const [theme, setTheme] = useState<'light' | 'dark' | undefined>(undefined);
+    useEffect(() => {
+      const savedTheme = localStorage.getItem('theme');
+    
+      let initialTheme: 'light' | 'dark';
 
-  useEffect(() => {
-    // Only run on client
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark' || saved === 'light') {
-      setTheme(saved);
-    } else {
-      // Optionally, use system preference as fallback
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
-    }
-  }, []);
+      if (savedTheme === 'dark' || savedTheme === 'light') {
+        initialTheme = savedTheme
+      } else {
+          initialTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+      setTheme(initialTheme)
+    }, []); 
 
-  const toggleTheme = useCallback(() => {
-    console.log('toggleTheme');
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  }, []);
+    useEffect(() => {
+      if(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+      }
+    }, [theme]);
 
-  return [theme, toggleTheme] as const;
+    const toggleTheme = useCallback(() => {
+      setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    }, []);
+
+    return [theme || 'light', toggleTheme] as const;
 } 
