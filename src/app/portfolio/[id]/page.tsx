@@ -5,9 +5,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 interface ProjectPageProps {
-    params: {
+    params: Promise<{
         id: string;
-    }
+    }>;
+}
+
+export async function generateStaticParams() {
+    return projects.map((project) => ({
+        id: project.id
+    }))
 }
 
 export default async function ProjectPage({params} : ProjectPageProps) {
@@ -33,7 +39,7 @@ export default async function ProjectPage({params} : ProjectPageProps) {
                         alt={`${project.title}  image ${index + 1}`}
                         width={800}
                         height={600}
-                        layout="responsive"
+                        // Removed for static build: layout="responsive"
                         className={styles.projectImage}
                         />
                 ))}
