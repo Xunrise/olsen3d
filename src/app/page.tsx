@@ -6,7 +6,6 @@ import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { useEffect } from "react";
-import styles from "./page.module.css";
 import { useHasMounted } from "./hooks/useHasMounted";
 
 export default function Home() {
