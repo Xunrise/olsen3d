@@ -1,15 +1,15 @@
 import Image from 'next/image';
-import {Project} from '../../data/projects';
+import {Category} from '../../data/projects';
 import styles from '../page.module.css';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-interface ProjectPreviewOverlayProps{
-    project: Project;
+interface CategoryPreviewOverlayProps{
+    category: Category;
     onClose: () => void;
 }
 
-export default function ProjectPreviewOverlay({project, onClose} : ProjectPreviewOverlayProps){
+export default function CategoryPreviewOverlay({category, onClose} : CategoryPreviewOverlayProps){
     const [isContentVisible, setIsContentVisible] = useState(false);
     const [isBackdropVisible, setIsBackdropVisible] = useState(false);
 
@@ -36,18 +36,18 @@ export default function ProjectPreviewOverlay({project, onClose} : ProjectPrevie
         <div className={`${styles.overlayBackdrop} ${isBackdropVisible ? styles.backdropVisible : ''}`} onClick={onClose}>
             <div className={`${styles.overlayContent} ${isContentVisible ? styles.overlayVisible : ''}`} onClick={(e) => e.stopPropagation()}> {/* Prevent backdrop click from closing when clicking inside content */}
                 <button className={styles.overlayCloseButton} onClick={handleClose}>X</button>
-                <h2>{project.title}</h2>
+                <h2>{category.title}</h2>
                 <Image
-                    src={project.thumbnail}
-                    alt={project.title}
+                    src={category.thumbnail}
+                    alt={category.title}
                     width={400}
                     height={300}
                     className={styles.overlayThumbnail}
                 />
 
-                <p>{project.summary}</p>
-                <Link href={`/portfolio/${project.id}`} className={styles.overlayViewProjectButton}>
-                    View Full Project
+                <p>{category.summary}</p>
+                <Link href={`/portfolio/${category.id}`} className={styles.overlayViewCategoryButton}>
+                    View Full Category
                 </Link>
             </div>
         </div>

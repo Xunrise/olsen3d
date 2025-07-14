@@ -1,21 +1,21 @@
 import styles from '../page.module.css';
 import Image from 'next/image';
-import {Project, projects} from '../../data/projects';
-import ProjectPreviewOverlay from './ProjectPreviewOverlay';
+import {Category, categories} from '../../data/projects';
+import CategoryPreviewOverlay from './CategoryPreviewOverlay';
 import { useState } from 'react';
 
 export default function Portfolio() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [showOverlay, setShowOverlay] = useState(false);
 
-  const handleProjectClick = (project: Project) => {
-    setSelectedProject(project);
+  const handleCategoryClick = (category: Category) => {
+    setSelectedCategory(category);
     setShowOverlay(true);
   }
 
   const handleCLoseOverlay = () => {
     setShowOverlay(false);
-    setSelectedProject(null);
+    setSelectedCategory(null);
   }
 
 
@@ -27,20 +27,20 @@ export default function Portfolio() {
           <p>Se noen av mine tidligere prosjekter og arbeid.</p>
         </div>
         <div className={styles.portfolioGrid}>
-          {projects.map((project) => (
-              <div key={project.id} className={styles.portfolioItem} onClick={() => handleProjectClick(project)}>
-              <Image src={project.thumbnail} alt={project.title} width={400} height={300} />
+          {categories.map((category) => (
+              <div key={category.id} className={styles.portfolioItem} onClick={() => handleCategoryClick(category)}>
+              <Image src={category.thumbnail} alt={category.title} width={400} height={300} />
               <div className={styles.portfolioItemOverlay}>
-                <h3>{project.title}</h3>
-                <p>{project.summary}</p>
+                <h3>{category.title}</h3>
+                <p>{category.summary}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {showOverlay && selectedProject && (
-        <ProjectPreviewOverlay project={selectedProject} onClose={handleCLoseOverlay} />
+      {showOverlay && selectedCategory && (
+        <CategoryPreviewOverlay category={selectedCategory} onClose={handleCLoseOverlay} />
       )}
     </section>
   );
