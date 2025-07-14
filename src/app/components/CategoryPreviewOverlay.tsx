@@ -1,18 +1,18 @@
 import Image from "next/image";
-import { Project } from "../../data/projects";
+import { Category } from "../../data/projects";
 import styles from "../page.module.css";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-interface ProjectPreviewOverlayProps {
-  project: Project;
+interface CategoryPreviewOverlayProps {
+  category: Category;
   onClose: () => void;
 }
 
-export default function ProjectPreviewOverlay({
-  project,
+export default function CategoryPreviewOverlay({
+  category,
   onClose,
-}: ProjectPreviewOverlayProps) {
+}: CategoryPreviewOverlayProps) {
   const [isContentVisible, setIsContentVisible] = useState(false);
   const [isBackdropVisible, setIsBackdropVisible] = useState(false);
 
@@ -47,22 +47,22 @@ export default function ProjectPreviewOverlay({
         {" "}
         {/* Prevent backdrop click from closing when clicking inside content */}
         <button className={styles.overlayCloseButton} onClick={handleClose}>
-          X
+          Lukk
         </button>
-        <h2>{project.title}</h2>
+        <h2>{category.title}</h2>
         <Image
-          src={project.thumbnail}
-          alt={project.title}
+          src={category.thumbnail}
+          alt={category.title}
           width={400}
           height={300}
           className={styles.overlayThumbnail}
         />
-        <p>{project.summary}</p>
+        <p>{category.summary}</p>
         <Link
-          href={`/portfolio/${project.id}`}
+          href={`/portfolio/${category.id}`}
           className={styles.overlayViewProjectButton}
         >
-          View Full Project
+          Se hele prosjektet
         </Link>
       </div>
     </div>
