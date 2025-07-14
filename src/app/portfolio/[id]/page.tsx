@@ -39,7 +39,7 @@ export default async function ProjectPage({params} : ProjectPageProps) {
                         alt={`${project.title}  image ${index + 1}`}
                         width={800}
                         height={600}
-                        // Removed for static build: layout="responsive"
+                        layout="responsive"
                         className={styles.projectImage}
                         />
                 ))}
