@@ -12,6 +12,8 @@ export default function Portfolio() {
 
   const handleCategoryClick = (category: Category) => {
     setSelectedCategory(category);
+  const handleCategoryClick = (category: Category) => {
+    setSelectedCategory(category);
     setShowOverlay(true);
   };
 
@@ -41,6 +43,8 @@ export default function Portfolio() {
                 height={300}
               />
               <div className={styles.portfolioItemOverlay}>
+                <h3>{category.title}</h3>
+                <p>{category.summary}</p>
                 <h3>{category.title}</h3>
                 <p>{category.summary}</p>
               </div>
