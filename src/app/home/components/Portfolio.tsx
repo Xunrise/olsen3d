@@ -1,6 +1,7 @@
-import styles from "../page.module.css";
+import styles from "./Portfolio.module.css";
+import homeStyles from "@/app/home/home.module.css";
 import Image from "next/image";
-import { Category, categories } from "../../data/projects";
+import { Category, categories } from "../../../data/projects";
 import CategoryPreviewOverlay from "./CategoryPreviewOverlay";
 import { useState } from "react";
 
@@ -21,7 +22,7 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className={styles.portfolio}>
+    <section id="portfolio" className={homeStyles.section}>
       <div className={styles.container}>
         <div className={styles.sectionTitle}>
           <h2>Portfolio</h2>

@@ -1,0 +1,11 @@
+.contact {
+  padding: 4rem 0;
+}
+.contactForm {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+}

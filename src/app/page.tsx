@@ -1,12 +1,13 @@
 "use client";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Services from "./components/Services";
-import Portfolio from "./components/Portfolio";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Header from "@/app/shared/components/Header";
+import Hero from "@/app/home/components/Hero";
+import Services from "@/app/home/components/Services";
+import Portfolio from "@/app/home/components/Portfolio";
+import Contact from "@/app/home/components/Contact";
+import Footer from "@/app/shared/components/Footer";
 import { useEffect } from "react";
-import { useHasMounted } from "./hooks/useHasMounted";
+import { useHasMounted } from "@/app/hooks/useHasMounted";
+import styles from "./page.module.css";
 
 export default function Home() {
   const hasMounted = useHasMounted();

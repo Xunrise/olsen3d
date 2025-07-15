@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Category } from "../../data/projects";
-import styles from "../page.module.css";
+import { Category } from "../../../data/projects";
+import styles from "./CategoryPreviewOverlay.module.css";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

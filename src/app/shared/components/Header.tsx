@@ -1,11 +1,11 @@
-import styles from "../page.module.css";
-import { useTheme } from "../hooks/useTheme";
+import styles from "./Header.module.css";
+import { useTheme } from "@/app/hooks/useTheme";
 
 export default function Header() {
   const [theme, toggleTheme] = useTheme();
   return (
     <header className={styles.header} id="header">
-      <nav className={styles.container}>
+      <nav className={styles.nav}>
         <div className={styles.logoText}>Olsen3D</div>
         <ul className={styles.navList}>
           <li>

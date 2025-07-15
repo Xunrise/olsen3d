@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { categories } from "../../../data/projects";
-import styles from "../../page.module.css";
+import styles from "./page.module.css";
 import Link from "next/link";
-import SwiperComponent from "../../components/SwiperComponent";
+import SwiperComponent from "../components/SwiperComponent";
 
 export interface CategoryPageProps {
   params: Promise<{

@@ -1,0 +1,31 @@
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 20px;
+}
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.sectionTitle h2 {
+  font-size: 2rem;
+  color: var(--text-color);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.sectionTitle h2:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: var(--hero-bg);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sectionTitle p {
+  color: var(--text-color);
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+}

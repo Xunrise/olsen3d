@@ -1,0 +1,48 @@
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer img {
+  flex-shrink: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+.contactInfo {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.contactInfo p {
+  margin: 0;
+}
+.contactInfo a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.contactInfo a:hover {
+  color: #5dade2;
+  text-decoration: underline;
+}
