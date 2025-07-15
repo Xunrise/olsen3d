@@ -1,4 +1,4 @@
-import styles from '../page.module.css';
+import styles from "../page.module.css";
 
 export default function Contact() {
   return (
@@ -26,10 +26,12 @@ export default function Contact() {
               <label htmlFor="message">Melding</label>
               <textarea id="message" name="message" required />
             </div>
-            <button type="submit" className={styles.btn}>Send melding</button>
+            <button type="submit" className={styles.btn}>
+              Send melding
+            </button>
           </form>
         </div>
       </div>
     </section>
   );
-} 
+}

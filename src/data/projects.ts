@@ -14,7 +14,8 @@ export const projects: Project[] = [
     summary: "Se prosjekter innen 3D-modellering og design",
     thumbnail: "/Artboard 1@3x.png",
     images: ["/Artboard 1@3x.png"], // Add more image paths as needed
-    description: "Here you can find a detailed description of my 3D model design projects. This includes various design aspects, software used, and challenges overcome. I've worked on diverse projects ranging from architectural visualizations to product prototypes.",
+    description:
+      "Here you can find a detailed description of my 3D model design projects. This includes various design aspects, software used, and challenges overcome. I've worked on diverse projects ranging from architectural visualizations to product prototypes.",
   },
   {
     id: "ikt-setup",
@@ -22,7 +23,8 @@ export const projects: Project[] = [
     summary: "Se prosjekter innen IKT-oppsett og løsninger",
     thumbnail: "/500x500 logo.png",
     images: ["/500x500 logo.png"], // Add more image paths as needed
-    description: "This section details my experience with ICT setup and solutions. I've handled network configurations, server management, and system integrations for various clients, ensuring robust and efficient IT infrastructures.",
+    description:
+      "This section details my experience with ICT setup and solutions. I've handled network configurations, server management, and system integrations for various clients, ensuring robust and efficient IT infrastructures.",
   },
   {
     id: "3d-printing",
@@ -30,6 +32,7 @@ export const projects: Project[] = [
     summary: "Se prosjekter innen 3D-printing og prototyping",
     thumbnail: "/olsen3d-profile-logo.png",
     images: ["/olsen3d-profile-logo.png"], // Add more image paths as needed
-    description: "Here you will find examples of my 3D printing and prototyping work. I specialize in rapid prototyping, creating functional and aesthetic models using various materials and printing technologies. Each project demonstrates a unique challenge and solution.",
+    description:
+      "Here you will find examples of my 3D printing and prototyping work. I specialize in rapid prototyping, creating functional and aesthetic models using various materials and printing technologies. Each project demonstrates a unique challenge and solution.",
   },
 ];

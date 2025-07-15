@@ -195,12 +195,12 @@ a.secondary {
   margin-left: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 0 0 15px rgba(0,0,0,0.4);
-  font-family: 'Arial', sans-serif;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  font-family: "Arial", sans-serif;
   position: relative;
 }
 .logoText::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -231,7 +231,7 @@ a.secondary {
   padding-bottom: 5px;
 }
 .navList li a:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 2px;
@@ -260,13 +260,13 @@ a.secondary {
   justify-content: center;
 }
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/tech-bakgrunn.jpg');
+  background-image: url("/tech-bakgrunn.jpg");
   background-size: cover;
   background-position: center;
   opacity: 0.4;
@@ -285,12 +285,12 @@ a.secondary {
   height: auto;
   margin: 0 auto;
   display: block;
-  filter: drop-shadow(0 0 15px rgba(0,0,0,0.4));
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.4));
 }
 .heroText {
   font-size: 2rem;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   margin-top: 1rem;
 }
 .services {
@@ -311,7 +311,9 @@ a.secondary {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px var(--shadow-color);
-  transition: transform 0.3s, background-color 0.3s;
+  transition:
+    transform 0.3s,
+    background-color 0.3s;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
@@ -374,7 +376,7 @@ a.secondary {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   color: white;
   padding: 1.5rem;
   transform: translateY(0);
@@ -436,7 +438,7 @@ a.secondary {
 .btn:hover {
   background-color: #2980b9;
   transform: translateY(-2px);
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .footer {
   background-color: #2c3e50;
@@ -476,7 +478,7 @@ a.secondary {
   padding-bottom: 10px;
 }
 .sectionTitle h2:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 50px;
   height: 3px;
@@ -491,7 +493,8 @@ a.secondary {
   margin: 0.5rem auto 0;
 }
 @media (max-width: 992px) {
-  .serviceGrid, .portfolioGrid {
+  .serviceGrid,
+  .portfolioGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -514,7 +517,8 @@ a.secondary {
   }
 }
 @media (max-width: 480px) {
-  .serviceGrid, .portfolioGrid {
+  .serviceGrid,
+  .portfolioGrid {
     grid-template-columns: 1fr;
   }
 }
@@ -558,7 +562,7 @@ a.secondary {
   transition: opacity 0.3s ease-out;
 }
 
-.overlayBackdrop.backdropVisible{
+.overlayBackdrop.backdropVisible {
   opacity: 1;
 }
 
@@ -575,7 +579,9 @@ a.secondary {
 
   opacity: 0;
   transform: translateY(20px) scale(0.95);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
 }
 
 .overlayContent.overlayVisible {
@@ -614,6 +620,6 @@ a.secondary {
   transition: backgounr-color 0.3s ease;
 }
 
-.overlayViewProjectButton:hover{
+.overlayViewProjectButton:hover {
   background-color: #5a0a99;
 }

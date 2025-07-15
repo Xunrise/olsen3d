@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   title: "Olsen3D",
   description: "Specializing in 3D modeling, 3D printing, and ICT solutions.",
   icons: {
-    icon: '/favicon.ico'
-  }
+    icon: "/favicon.ico",
+  },
 };
 
 function getInitColorSchemeScript() {
@@ -42,7 +42,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: getInitColorSchemeScript() }} />
+        <script
+          dangerouslySetInnerHTML={{ __html: getInitColorSchemeScript() }}
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
