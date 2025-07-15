@@ -15,7 +15,7 @@ export default function Portfolio() {
     setShowOverlay(true);
   };
 
-  const handleCLoseOverlay = () => {
+  const handleCloseOverlay = () => {
     setShowOverlay(false);
     setSelectedCategory(null);
   };
@@ -52,7 +52,7 @@ export default function Portfolio() {
       {showOverlay && selectedCategory && (
         <CategoryPreviewOverlay
           category={selectedCategory}
-          onClose={handleCLoseOverlay}
+          onClose={handleCloseOverlay}
         />
       )}
     </section>
