@@ -21,20 +21,20 @@ function SwiperComponent({ project }: SwiperComponentProps) {
   return (
     <Swiper
       spaceBetween={30}
-      slidesPerView={3}
+      slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       modules={[Navigation, Pagination, Scrollbar]}
-      style={{ height: "500px" }}
+      style={{ height: "650px", width: "100%", borderRadius: "8px" }}
     >
       {project.images.map((imagePath, index) => (
-        <SwiperSlide key={index} style={{ position: "relative" }}>
+        <SwiperSlide key={imagePath} style={{ position: "relative" }}>
           <Image
             src={imagePath}
             alt={`${project.title}  image ${index + 1}`}
             fill={true}
-            style={{ objectFit: "contain" }}
+            style={{ objectFit: "cover" }}
           />
         </SwiperSlide>
       ))}

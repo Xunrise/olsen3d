@@ -31,9 +31,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </Link>
       <h1>{category.title}</h1>
       <p>{category.description}</p>
-      {category.projects.map((project) => (
-        <SwiperComponent key={project.id} project={project} />
-      ))}
+      <div className={styles.projectGrid}>
+        {category.projects.map((project) => (
+          <div key={project.id} className={styles.project}>
+            <SwiperComponent project={project} />
+            <div className={styles.imageOverlay}>
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
