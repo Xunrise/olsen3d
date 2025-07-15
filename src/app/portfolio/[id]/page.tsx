@@ -4,7 +4,7 @@ import styles from "../../page.module.css";
 import Link from "next/link";
 import SwiperComponent from "../../components/SwiperComponent";
 
-export interface ProjectPageProps {
+export interface CategoryPageProps {
   params: Promise<{
     id: string;
   }>;
@@ -16,7 +16,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function CategoryPage({ params }: CategoryPageProps) {
   const { id } = await params;
 
   const category = categories.find((p) => p.id === id);
