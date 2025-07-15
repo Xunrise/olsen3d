@@ -24,7 +24,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!category) {
     notFound();
   }
-
   return (
     <div className={styles.container}>
       <Link href="/#portfolio" className={styles.backLink}>
@@ -33,9 +32,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <h1>{category.title}</h1>
       <p>{category.description}</p>
       {category.projects.map((project) => (
-        <div>
-          <SwiperComponent project={project} />
-        </div>
+        <SwiperComponent key={project.id} project={project} />
       ))}
     </div>
   );
