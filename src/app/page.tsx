@@ -40,11 +40,13 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Hero />
-      <Services />
-      <Portfolio />
-      <Contact />
-      <Footer />
+      <main className={styles.main}>
+        <Hero />
+        <Services />
+        <Portfolio />
+        <Contact />
+        <Footer />
+      </main>
     </>
   );
 }

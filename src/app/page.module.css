@@ -17,6 +17,7 @@
   font-family: var(--font-geist-sans);
 }
 
+
 @media (prefers-color-scheme: dark) {
   .page {
     --gray-rgb: 255, 255, 255;
@@ -33,6 +34,17 @@
   flex-direction: column;
   gap: 32px;
   grid-row-start: 2;
+}
+
+.main::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 5vw; /* Position it 5% from the left, for example */
+  width: 2px;
+  height: 100vh;
+  background-color: var(--y-axis-red);
+  z-index: -1; /* Place it behind all other content */
 }
 
 .main ol {
