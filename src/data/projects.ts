@@ -21,13 +21,13 @@ export const modelProjects: Project[] = [
     id: "latch",
     title: "latch",
     summary: "made a latch",
-    thumbnail: "/3d prints/latch/CAT top.png",
+    thumbnail: "/3d Prints/latch/CAD top.png",
     description: "modelled and made a latch replacement",
     images: [
-      "/3d prints/latch/CAD top.png",
-      "/3d prints/latch/CAD bottom.png",
-      "/3d prints/latch/male.png",
-      "/3d prints/latch/female.png",
+      "/3d Prints/latch/CAD top.png",
+      "/3d Prints/latch/CAD bottom.png",
+      "/3d Prints/latch/male.png",
+      "/3d Prints/latch/female.png",
     ],
   },
 ];
@@ -51,26 +51,26 @@ export const printProjects: Project[] = [
     summary: "3D Printed a replacement door handle",
     description:
       "3D Printed a replacement door handle for xyz bobil, saving xyz in costs for the customer. Printed in PLA, took 1 day",
-    thumbnail: "/3dprints/bobil door.png",
-    images: ["/3d prints/bobil door.png", "/3d prints/can holder bottom.png"],
+    thumbnail: "/3d Prints/bobil door.png",
+    images: ["/3d Prints/bobil door.png", "/3d Prints/can holder bottom.png"],
   },
   {
     id: "can holder",
-    title: "can holde",
-    summary: "can holde",
+    title: "can holder",
+    summary: "3D Printed a can holder",
     description:
-      "3D Printed a replacement door handle for xyz bobil, saving xyz in costs for the customer. Printed in PLA, took 1 day",
-    thumbnail: "/3d prints/can holder.png",
-    images: ["/3d prints/can holder.png", "/3d prints/can holder bottom.png"],
+      "3D Printed a can holder for convenient storage. Printed in PLA, took 1 day",
+    thumbnail: "/3d Prints/can holder.png",
+    images: ["/3d Prints/can holder.png", "/3d Prints/can holder bottom.png"],
   },
   {
     id: "filament stand",
     title: "filament stand",
     summary: "3D Printed a filament stand",
     description:
-      "3D Printed a replacement door handle for xyz bobil, saving xyz in costs for the customer. Printed in PLA, took 1 day",
-    thumbnail: "/3d prints/filament stand.png",
-    images: ["/3d prints/filament stand.png"],
+      "3D Printed a filament stand for better 3D printing organization. Printed in PLA, took 1 day",
+    thumbnail: "/3d Prints/filament stand.png",
+    images: ["/3d Prints/filament stand.png"],
   },
 ];
 
@@ -79,7 +79,7 @@ export const categories: Category[] = [
     id: "3d-model-design",
     title: "3D-modell design",
     summary: "Se prosjekter innen 3D-modellering og design",
-    thumbnail: "/3d prints/latch/CAD top.png",
+    thumbnail: "/3d Prints/latch/CAD top.png",
     projects: modelProjects,
     description:
       "Here you can find a detailed description of my 3D model design projects. This includes various design aspects, software used, and challenges overcome. I've worked on diverse projects ranging from architectural visualizations to product prototypes.",
@@ -97,7 +97,7 @@ export const categories: Category[] = [
     id: "3d-printing",
     title: "3D-utskrift",
     summary: "Se prosjekter innen 3D-printing og prototyping",
-    thumbnail: "/3d prints/bobil door.png",
+    thumbnail: "/3d Prints/bobil door.png",
     projects: printProjects,
     description:
       "Here you will find examples of my 3D printing and prototyping work. I specialize in rapid prototyping, creating functional and aesthetic models using various materials and printing technologies. Each project demonstrates a unique challenge and solution.",
