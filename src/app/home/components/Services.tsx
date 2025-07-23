@@ -1,6 +1,7 @@
 import styles from "./Services.module.css";
 import homeStyles from "@/app/home/home.module.css";
 import Image from "next/image";
+import Swiper from "swiper";
 
 export default function Services() {
   return (

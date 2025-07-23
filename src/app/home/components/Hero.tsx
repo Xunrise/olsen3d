@@ -1,5 +1,7 @@
 import styles from "./Hero.module.css";
 import Image from "next/image";
+import HeroSwiper from "./HeroSwiper";
+import { categories } from "@/data/projects";
 
 export default function Hero() {
   return (
