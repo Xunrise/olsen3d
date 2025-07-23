@@ -1,12 +1,11 @@
 import styles from "./Services.module.css";
 import homeStyles from "@/app/home/home.module.css";
 import Image from "next/image";
-import Swiper from "swiper";
 
 export default function Services() {
   return (
     <section id="services" className={homeStyles.section}>
-      <div className={styles.sectionTitle}>
+      <div className={homeStyles.sectionTitle}>
         <h2>Mine tjenester</h2>
       </div>
       <div className={styles.serviceGrid}>

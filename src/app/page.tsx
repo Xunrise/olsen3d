@@ -45,9 +45,15 @@ export default function Home() {
       <main className={styles.main}>
         <Hero />
         <HeroSwiper categories={categories} />
-        <Services />
-        <Portfolio />
-        <Contact />
+        <div className={styles.servicesSection}>
+          <Services />
+        </div>
+        <div className={styles.portfolioSection}>
+          <Portfolio />
+        </div>
+        <div className={styles.contactSection}>
+          <Contact />
+        </div>
         <Footer />
       </main>
     </>

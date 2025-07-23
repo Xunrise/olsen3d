@@ -3,18 +3,15 @@
   margin: 0 auto;
   padding: 2rem 20px;
 }
+
 .sectionTitle {
   text-align: center;
   margin-bottom: 1.5rem;
-}
-.sectionTitle h2 {
-  font-size: 2rem;
-  color: var(--text-color);
   position: relative;
-  display: inline-block;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
-.sectionTitle h2:after {
+
+.sectionTitle::after {
   content: "";
   position: absolute;
   width: 50px;
@@ -23,9 +20,54 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  border-top: 1px solid var(--x-axis-green);
 }
+
+.sectionTitle h2 {
+  font-size: 2rem;
+  color: var(--text-color);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
 .sectionTitle p {
   color: var(--text-color);
   max-width: 600px;
   margin: 0.5rem auto 0;
+}
+
+/* CAD design container */
+.cadContainer {
+  border: 1px solid var(--cad-border-light);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.cadContainer:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  border-color: var(--cad-border-dark);
+}
+
+/* Portfolio specific styles */
+.portfolio .sectionTitle {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.portfolio .sectionTitle::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: var(--hero-bg);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 1px solid var(--x-axis-green);
 }
