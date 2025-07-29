@@ -3,8 +3,7 @@
   flex-direction: column;
   gap: 32px;
   position: relative;
-  margin-left: 20px; /* Space for the y-axis border */
-  padding-top: 80px; /* Account for fixed header */
+  padding-top: 40px; /* Account for fixed header */
   border-left-style: dashed;
   border-left-width: 3px;
   border-left-color: var(--y-axis-red);
