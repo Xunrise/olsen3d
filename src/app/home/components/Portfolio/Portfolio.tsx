@@ -2,24 +2,12 @@ import styles from "./Portfolio.module.css";
 import homeStyles from "@/app/home/home.module.css";
 import Image from "next/image";
 import { Category, categories } from "../../../../data/projects";
-import CategoryPreviewOverlay from "../CategoryPreviewOverlay/CategoryPreviewOverlay";
 import { useState } from "react";
 
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(
     null
   );
-  const [showOverlay, setShowOverlay] = useState(false);
-
-  const handleCategoryClick = (category: Category) => {
-    setSelectedCategory(category);
-    setShowOverlay(true);
-  };
-
-  const handleCloseOverlay = () => {
-    setShowOverlay(false);
-    setSelectedCategory(null);
-  };
 
   return (
     <section id="portfolio" className={homeStyles.section}>
@@ -30,30 +18,25 @@ export default function Portfolio() {
       <div className={styles.portfolioGrid}>
         {categories.map((category) => (
           <div
-            key={category.id}
-            className={styles.portfolioItem}
-            onClick={() => handleCategoryClick(category)}
-          >
-            <Image
-              src={category.thumbnail}
-              alt={category.title}
-              width={400}
-              height={300}
-            />
-            <div className={styles.portfolioItemOverlay}>
-              <h3>{category.title}</h3>
-              <p>{category.summary}</p>
-            </div>
+              key={category.id}
+              className={styles.portfolioItem}
+            >
+            <a href={"/portfolio/"+category.id}>
+              <Image
+                src={category.thumbnail}
+                alt={category.title}
+                width={400}
+                height={300}
+              />
+              <div className={styles.portfolioItemOverlay}>
+                <h3>{category.title}</h3>
+                <p>{category.summary}</p>
+              </div>
+            </a>
           </div>
         ))}
       </div>
 
-      {showOverlay && selectedCategory && (
-        <CategoryPreviewOverlay
-          category={selectedCategory}
-          onClose={handleCloseOverlay}
-        />
-      )}
     </section>
   );
 }
