@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Services() {
   return (
     <section id="services" className={homeStyles.section}>
-      <div className={homeStyles.sectionTitle}>
+      <div className="section-title">
         <h2>Mine tjenester</h2>
       </div>
       <div className={styles.serviceGrid}>

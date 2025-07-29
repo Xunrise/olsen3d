@@ -1,15 +1,13 @@
 "use client";
-import Header from "@/app/shared/components/Header";
-import Hero from "@/app/home/components/Hero";
-import Services from "@/app/home/components/Services";
-import Portfolio from "@/app/home/components/Portfolio";
-import Contact from "@/app/home/components/Contact";
-import Footer from "@/app/shared/components/Footer";
+import Header from "@/app/shared/components/Header/Header";
+import Hero from "@/app/home/components/Hero/Hero";
+import Services from "@/app/home/components/Services/Services";
+import Portfolio from "@/app/home/components/Portfolio/Portfolio";
+import Contact from "@/app/home/components/Contact/Contact";
+import Footer from "@/app/shared/components/Footer/Footer";
 import { useEffect } from "react";
 import { useHasMounted } from "@/app/hooks/useHasMounted";
 import styles from "./page.module.css";
-import HeroSwiper from "./home/components/HeroSwiper";
-import { categories } from "@/data/projects";
 
 export default function Home() {
   const hasMounted = useHasMounted();
@@ -44,7 +42,6 @@ export default function Home() {
       <Header />
       <main className={styles.main}>
         <Hero />
-        <HeroSwiper categories={categories} />
         <div className={styles.servicesSection}>
           <Services />
         </div>

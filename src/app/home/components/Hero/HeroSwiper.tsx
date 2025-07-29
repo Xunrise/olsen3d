@@ -6,7 +6,7 @@ import 'swiper/css/pagination';
 import { Category } from "@/data/projects";
 import Image from "next/image";
 import { FreeMode, Pagination } from "swiper/modules";
-import styles from "./Hero.module.css";
+import styles from "./HeroSwiper.module.css";
 
 interface HeroSwiperProps {
   categories: Category[];

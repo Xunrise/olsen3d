@@ -3,9 +3,7 @@
 }
 
 .serviceGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  composes: grid-responsive from global;
   margin-top: 2rem;
   justify-items: center;
   max-width: 1200px;
@@ -13,35 +11,17 @@
   margin-right: auto;
 }
 
-@media (max-width: 992px) {
-  .serviceGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .serviceGrid{
-    grid-template-columns: 1fr;
-  }
-}
-
 .serviceCard {
+  composes: card-hover from global;
   background-color: var(--card-bg);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px var(--shadow-color);
-  transition: all 0.3s ease;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  border: 1px solid var(--cad-border-light);
 }
 
-.serviceCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  border-color: var(--cad-border-dark);
-}
 
 .serviceCardContent {
   padding: 1.5rem;

@@ -4,7 +4,7 @@ import homeStyles from "@/app/home/home.module.css";
 export default function Contact() {
   return (
     <section className={homeStyles.section}>
-      <div className="sectionTitle">
+      <div className="section-title">
         <h2>Kontakt meg</h2>
         <p>Har du spørsmål eller ønsker et tilbud? Ta kontakt!</p>
       </div>

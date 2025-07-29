@@ -141,7 +141,7 @@ a {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* CAD Design Elements */
+/* CAD Design Elements - Global reusable styles */
 .cad-container {
   border: 1px solid var(--cad-border-light);
   border-top: 1px solid var(--x-axis-green);
@@ -156,4 +156,76 @@ a {
   border-color: var(--cad-border-dark);
   border-top: 1px solid var(--x-axis-green);
   border-left: 1px solid var(--y-axis-red);
+}
+
+/* Shared section title styles */
+.section-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: var(--hero-bg);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 1px solid var(--x-axis-green);
+}
+
+.section-title h2 {
+  font-size: 2rem;
+  color: var(--text-color);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.section-title p {
+  color: var(--text-color);
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+}
+
+/* Common card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+  border: 1px solid var(--cad-border-light);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-color: var(--cad-border-dark);
+}
+
+/* Common grid layouts */
+.grid-responsive {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 992px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-responsive {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Common container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }

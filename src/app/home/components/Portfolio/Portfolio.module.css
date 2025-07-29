@@ -4,39 +4,21 @@
 }
 
 .portfolioGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  composes: grid-responsive from global;
   margin-top: 2rem;
 }
 
-@media (max-width: 992px) {
-  .portfolioGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .portfolioGrid{
-    grid-template-columns: 1fr;
-  }
-}
-
 .portfolioItem {
+  composes: card-hover from global;
   background-color: var(--card-bg);
   border-radius: 8px;
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--cad-border-light);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
 }
 
 .portfolioItem:hover {
   cursor: pointer;
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  border-color: var(--cad-border-dark);
 }
 
 .portfolioItem img {

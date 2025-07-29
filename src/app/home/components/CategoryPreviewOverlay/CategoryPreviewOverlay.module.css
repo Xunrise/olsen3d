@@ -68,7 +68,7 @@
   color: white;
   text-decoration: none;
   border-radius: 5px;
-  transition: backgounr-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .overlayViewProjectButton:hover {

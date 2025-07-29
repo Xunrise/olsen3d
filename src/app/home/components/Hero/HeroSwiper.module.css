@@ -11,21 +11,15 @@
 }
 
 .swiperSlide {
+  composes: card-hover from global;
   text-align: center;
   font-size: 18px;
   background: var(--card-bg);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  border: 1px solid var(--cad-border-light);
 }
 
-.swiperSlide:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  border-color: var(--cad-border-dark);
-}
 
 .slideContent {
   height: 100%;
