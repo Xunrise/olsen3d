@@ -13,6 +13,17 @@
   --y-axis-red: #F44336;   /* A strong red */
   --cad-border-light: #e0e0e0;
   --cad-border-dark: #bdbdbd;
+  --cad-bg-primary: #2b2b2b;
+  --cad-bg-secondary: #3a3a3a;
+  --cad-border: rgba(255, 255, 255, 0.15);
+  --cad-border-active: #0078d4;
+  --cad-text-primary: #ffffff;
+  --cad-text-secondary: #b0b0b0;
+  --cad-text-accent: #00d4ff;
+  --cad-success: #4caf50;
+  --cad-grid: rgba(255, 255, 255, 0.05);
+  --cad-hover: rgba(0, 120, 212, 0.1);
+  --cad-selection: rgba(0, 212, 255, 0.2);
 }
 
 [data-theme="dark"] {

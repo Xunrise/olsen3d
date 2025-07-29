@@ -1,53 +1,163 @@
+/* Portfolio.module.css */
+
 .portfolio {
-  background-color: var(--section-bg);
-  padding: 2rem 0;
+  padding: 20px;
+  background: var(--cad-bg-primary, #1e1e1e);
+  min-height: 100vh;
 }
 
-.portfolioGrid {
-  composes: grid-responsive from global;
-  margin-top: 2rem;
+/* CAD-style Toolbar */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 }
 
-.portfolioItem {
-  composes: card-hover from global;
-  background-color: var(--card-bg);
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.toolbarSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.portfolioItem:hover {
+.toolbarLabel {
+  font-size: 10px;
+  color: #b0b0b0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.categoryFilters {
+  display: flex;
+  gap: 4px;
+}
+
+.filterBtn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 4px 12px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 2px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
 }
 
-.portfolioItem img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s;
-  border-radius: 8px 8px 0 0;
+.filterBtn:hover {
+  background: rgba(0, 120, 212, 0.2);
+  border-color: #0078d4;
 }
 
-.portfolioItemOverlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+.filterBtn.active {
+  background: #0078d4;
+  border-color: #0078d4;
   color: white;
-  padding: 1.5rem;
-  transform: translateY(0);
-  transition: transform 0.3s;
+  box-shadow: 0 0 8px rgba(0, 120, 212, 0.4);
 }
 
-.portfolioItemOverlay h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.4rem;
+.itemCount {
+  font-size: 11px;
+  color: #00d4ff;
+  font-weight: 600;
+  background: rgba(0, 212, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 2px;
 }
 
-.portfolioItemOverlay p {
-  margin: 0;
-  font-size: 1rem;
-  opacity: 0.9;
+/* Project Grid */
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* CAD-style Status Bar */
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 6px 16px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.statusSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusLabel {
+  font-size: 9px;
+  color: #b0b0b0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.statusValue {
+  font-size: 9px;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .projectGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 16px;
+  }
+  
+  .toolbar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .toolbarSection {
+    justify-content: center;
+  }
+  
+  .categoryFilters {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .projectGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  
+  .statusBar {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filterBtn {
+    font-size: 8px;
+    padding: 3px 8px;
+  }
 }
