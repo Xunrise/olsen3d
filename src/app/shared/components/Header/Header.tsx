@@ -1,8 +1,7 @@
+import ThemeSwitch from "./ThemeSwitch";
 import styles from "./Header.module.css";
-import { useTheme } from "@/app/hooks/useTheme";
 
 export default function Header() {
-  const [theme, toggleTheme] = useTheme();
   return (
     <header className={styles.header} id="header">
       <nav className={styles.nav}>
@@ -21,14 +20,7 @@ export default function Header() {
             <a href="#contact">Kontakt</a>
           </li>
         </ul>
-        <button
-          className={styles.themeToggle}
-          id="theme-toggle"
-          aria-label="Toggle theme"
-          onClick={toggleTheme}
-        >
-          <i className={theme === "dark" ? "fas fa-sun" : "fas fa-moon"}></i>
-        </button>
+        <ThemeSwitch />
       </nav>
     </header>
   );

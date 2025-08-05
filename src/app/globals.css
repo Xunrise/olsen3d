@@ -16,6 +16,32 @@
   --spacing-unit: 8px;
 }
 
+[data-theme="light"] {
+  /* Background Colors - Light CAD Interface */
+  --cad-bg-primary: #f8f9fa; /* Very light gray, like CAD canvas */
+  --cad-bg-secondary: #e9ecef; /* Light panel gray */
+  --cad-bg-tertiary: #dee2e6; /* Slightly darker panels */
+
+  /* Border Colors - Visible on light backgrounds */
+  --cad-border: rgba(0, 0, 0, 0.12); /* Subtle dark borders */
+  --cad-border-active: #0078d4; /* Keep the blue accent */
+
+  /* Text Colors - Dark on light */
+  --cad-text-primary: #212529; /* Dark primary text */
+  --cad-text-secondary: #6c757d; /* Medium gray secondary */
+  --cad-text-accent: #0056b3; /* Darker blue for better contrast */
+
+  /* Accent Colors - Adjusted for light theme */
+  --cad-accent-blue: #0078d4; /* Keep same - works on light */
+  --cad-accent-orange: #d63384; /* Slightly more saturated pink-red */
+  --cad-success: #198754; /* Darker green for contrast */
+
+  /* Utility Colors - Adjusted opacity and darkness */
+  --cad-grid: rgba(0, 0, 0, 0.08); /* Subtle dark grid lines */
+  --cad-hover: rgba(0, 120, 212, 0.08); /* Light blue hover */
+  --cad-glow: 0 0 20px rgba(0, 120, 212, 0.2); /* Softer glow */
+}
+
 * {
   margin: 0;
   padding: 0;
