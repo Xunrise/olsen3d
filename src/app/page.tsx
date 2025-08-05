@@ -7,7 +7,7 @@ import Contact from "@/app/home/components/Contact/Contact";
 import Footer from "@/app/shared/components/Footer/Footer";
 import { useEffect } from "react";
 import { useHasMounted } from "@/app/hooks/useHasMounted";
-import styles from "./page.module.css";
+import "./page.css";
 
 export default function Home() {
   const hasMounted = useHasMounted();
@@ -40,13 +40,12 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className={styles.main}>
-        <Hero />
-        <Services />
-        <Portfolio />
-        <Contact />
-        <Footer />
-      </main>
+      <div className="grid-background"></div>
+      <Hero />
+      <Services />
+      <Portfolio />
+      <Contact />
+      <Footer />
     </>
   );
 }

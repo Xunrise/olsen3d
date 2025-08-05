@@ -9,7 +9,7 @@ export default function Header() {
         <div className={styles.logoText}>Olsen3D</div>
         <ul className={styles.navList}>
           <li>
-            <a href="#home">Hjem</a>
+            <a href="#hero">Hjem</a>
           </li>
           <li>
             <a href="#services">Tjenester</a>

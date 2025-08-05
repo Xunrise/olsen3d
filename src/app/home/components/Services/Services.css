@@ -1,0 +1,135 @@
+.services {
+  padding: 120px 40px;
+  background: var(--cad-bg-secondary);
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--cad-text-primary);
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--cad-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.service-card {
+  background: var(--cad-bg-primary);
+  border: 1px solid var(--cad-border);
+  border-radius: 8px;
+  padding: 40px 32px;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--cad-accent-blue),
+    var(--cad-text-accent)
+  );
+}
+
+.service-card:hover {
+  border-color: var(--cad-border-active);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--cad-accent-blue);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--cad-text-primary);
+}
+
+.service-description {
+  color: var(--cad-text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.service-features {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.service-features li {
+  padding: 8px 0;
+  color: var(--cad-text-secondary);
+  position: relative;
+  padding-left: 24px;
+}
+
+.service-features li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--cad-text-accent);
+  font-weight: bold;
+}
+
+.service-link {
+  color: var(--cad-text-accent);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.service-link:hover {
+  color: var(--cad-accent-blue);
+  text-shadow: 0 0 8px var(--cad-text-accent);
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 80px 20px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

@@ -1,57 +1,71 @@
-import styles from "./Services.module.css";
-import homeStyles from "@/app/home/home.module.css";
-import Image from "next/image";
+import Link from "next/link";
+import "./Services.css";
 
 export default function Services() {
   return (
-    <section id="services" className={homeStyles.section}>
-      <div className="section-title">
-        <h2>Mine tjenester</h2>
-      </div>
-      <div className={styles.serviceGrid}>
-        <div className={styles.serviceCard}>
-          <Image
-            src="/3d-printing-bilde.png"
-            alt="3D-printing"
-            width={500}
-            height={200}
-          />
-          <div className={styles.serviceCardContent}>
-            <h3>3D-printing og design</h3>
-            <p>
-              Design og produksjon av 3D-modeller. Fra idé til ferdig produkt -
-              jeg hjelper deg med hele prosessen.
-            </p>
-          </div>
+    <section className="services" id="services">
+      <div className="services-container">
+        <div className="section-header">
+          <h2 className="section-title">Our Services</h2>
+          <p className="section-subtitle">
+            Professional solutions tailored to your needs, from hands-on work to
+            comprehensive learning experiences.
+          </p>
         </div>
-        <div className={styles.serviceCard}>
-          <Image
-            src="/kjopshjelp-bilde.png"
-            alt="Veiledning"
-            width={500}
-            height={200}
-          />
-          <div className={styles.serviceCardContent}>
-            <h3>Veiledning</h3>
-            <p>
-              Kjøpshjelp for IKT-utstyr og reparasjon av småelektronikk. Jeg
-              hjelper deg med å finne riktig utstyr og løse tekniske problemer.
+
+        <div className="services-grid">
+          <div className="service-card">
+            <div className="service-icon">🔧</div>
+            <h3 className="service-title">Professional Work</h3>
+            <p className="service-description">
+              Ready-to-deliver solutions for your project needs. We handle the
+              technical complexity so you can focus on your vision.
             </p>
+            <ul className="service-features">
+              <li>Custom 3D Design & Modeling</li>
+              <li>High-Quality 3D Printing</li>
+              <li>Complete IT System Builds</li>
+              <li>Hardware Setup & Configuration</li>
+            </ul>
+            <Link href="/portfolio" className="service-link" prefetch={true}>
+              View Our Work <span>→</span>
+            </Link>
           </div>
-        </div>
-        <div className={styles.serviceCard}>
-          <Image
-            src="/kursing-bilde.png"
-            alt="Kursing"
-            width={500}
-            height={200}
-          />
-          <div className={styles.serviceCardContent}>
-            <h3>Kursing</h3>
-            <p>
-              Få mest mulig ut av teknologien din. Jeg tilbyr skreddersydd
-              opplæring i bruk av IKT-utstyr.
+
+          <div className="service-card">
+            <div className="service-icon">💡</div>
+            <h3 className="service-title">Expert Guidance</h3>
+            <p className="service-description">
+              Get personalized advice and direction for your projects. Perfect
+              when you want to learn while getting professional insight.
             </p>
+            <ul className="service-features">
+              <li>Project Planning & Strategy</li>
+              <li>Technology Recommendations</li>
+              <li>Troubleshooting Support</li>
+              <li>Best Practices Consultation</li>
+            </ul>
+            <a href="/guidance" className="service-link">
+              Get Guidance <span>→</span>
+            </a>
+          </div>
+
+          <div className="service-card">
+            <div className="service-icon">🎓</div>
+            <h3 className="service-title">Learning Courses</h3>
+            <p className="service-description">
+              Comprehensive courses designed to take you from beginner to
+              confident practitioner in 3D design, printing, and IT systems.
+            </p>
+            <ul className="service-features">
+              <li>Beginner-Friendly 3D Modeling</li>
+              <li>3D Printing Fundamentals</li>
+              <li>PC Building & IT Basics</li>
+              <li>Hands-On Project Experience</li>
+            </ul>
+            <a href="/courses" className="service-link">
+              Browse Courses <span>→</span>
+            </a>
           </div>
         </div>
       </div>
