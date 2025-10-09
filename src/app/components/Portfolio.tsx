@@ -1,23 +1,8 @@
 import styles from '../page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import {Project} from '../../data/projects';
-import { useState } from 'react';
 
 export default function Portfolio() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [showOverlay, setShowOverlay] = useState(false);
-
-  const handleProjectClick = (project: Project) => {
-    setSelectedProject(project);
-    setShowOverlay(true);
-  }
-
-  const handleCLoseOverlay = () => {
-    setShowOverlay(false);
-    setSelectedProject(null);
-  }
-
 
   return (
     <section id="portfolio" className={styles.portfolio}>
@@ -50,10 +35,6 @@ export default function Portfolio() {
           </Link>
         </div>
       </div>
-
-      {showOverlay && selectedProject && (
-        <ProjectPreviewOverlay project={selectedProject} onClose={handleCLoseOverlay} />
-      )}
     </section>
   );
 } 
