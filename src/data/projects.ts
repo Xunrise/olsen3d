@@ -1,6 +1,7 @@
 export interface Project {
   id: string; // Used for the URL slug (e.g., /portfolio/my-first-project)
   title: string;
+  category: string; // Service category: '3d-modellering', 'ikt-setup', or '3d-utskrift'
   summary: string; // Brief description for the main portfolio page
   thumbnail: string; // Path to the thumbnail image (e.g., /images/project1-thumb.jpg)
   images: string[]; // Array of paths to images for the detailed project page
@@ -11,6 +12,7 @@ export const projects: Project[] = [
   {
     id: "3d-model-design",
     title: "3D-modell design",
+    category: "3d-modellering",
     summary: "Se prosjekter innen 3D-modellering og design",
     thumbnail: "/Artboard 1@3x.png",
     images: ["/Artboard 1@3x.png"], // Add more image paths as needed
@@ -19,6 +21,7 @@ export const projects: Project[] = [
   {
     id: "ikt-setup",
     title: "IKT Setup",
+    category: "ikt-setup",
     summary: "Se prosjekter innen IKT-oppsett og løsninger",
     thumbnail: "/500x500 logo.png",
     images: ["/500x500 logo.png"], // Add more image paths as needed
@@ -27,6 +30,7 @@ export const projects: Project[] = [
   {
     id: "3d-printing",
     title: "3D-utskrift",
+    category: "3d-utskrift",
     summary: "Se prosjekter innen 3D-printing og prototyping",
     thumbnail: "/olsen3d-profile-logo.png",
     images: ["/olsen3d-profile-logo.png"], // Add more image paths as needed
