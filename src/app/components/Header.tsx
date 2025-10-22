@@ -1,8 +1,36 @@
+"use client";
+
 import styles from '../page.module.css';
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from 'next-themes';
+import { Moon, Sun } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
-  const [theme, toggleTheme] = useTheme();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+
+    // Scroll event for header
+    const header = document.getElementById("header");
+    const onScroll = () => {
+      if (window.scrollY > 50) {
+        header?.classList.add("scrolled");
+      } else {
+        header?.classList.remove("scrolled");
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   return (
     <header className={styles.header} id="header">
       <nav className={styles.container}>
@@ -19,7 +47,7 @@ export default function Header() {
           aria-label="Toggle theme"
           onClick={toggleTheme}
         >
-          <i className={theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'}></i>
+          {mounted && (theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />)}
         </button>
       </nav>
     </header>
