@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getAllServices } from '@/lib/mdx';
 import styles from '../page.module.css';
 import * as Icons from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 export default function TjenesterPage() {
   const services = getAllServices();
@@ -10,6 +11,12 @@ export default function TjenesterPage() {
     <main className={styles.main}>
       <section className={styles.services}>
         <div className={styles.container}>
+          <div className={styles.breadcrumb}>
+            <Link href="/" className={styles.backButton}>
+              <ArrowLeft size={20} /> Tilbake til forsiden
+            </Link>
+          </div>
+
           <div className={styles.sectionTitle}>
             <h1>Mine tjenester</h1>
             <p>Jeg tilbyr et bredt spekter av tjenester innen 3D-printing, design, IT og opplæring.</p>
