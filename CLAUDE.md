@@ -10,16 +10,16 @@ This is a Next.js 15 portfolio/service website for Olsen3D, built with React 19,
 
 ```bash
 # Start development server with Turbopack (faster builds)
-npm run dev
+pnpm run dev
 
 # Build for production
-npm run build
+pnpm run build
 
 # Start production server
-npm start
+pnpm start
 
 # Run linter
-npm run lint
+pnpm run lint
 ```
 
 The dev server runs at http://localhost:3000
