@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllProjects, getProjectBySlug, getAllServices } from '@/lib/mdx';
+import ImageGallery from '@/app/components/ImageGallery';
 import styles from '../../page.module.css';
 
 export async function generateStaticParams() {
@@ -57,19 +57,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </header>
 
           {project.images.length > 0 && (
-            <div className={styles.projectGallery}>
-              {project.images.map((image, index) => (
-                <div key={index} className={styles.galleryImage}>
-                  <Image
-                    src={image}
-                    alt={`${project.title} - Bilde ${index + 1}`}
-                    width={800}
-                    height={600}
-                    style={{ objectFit: 'contain' }}
-                  />
-                </div>
-              ))}
-            </div>
+            <ImageGallery
+              images={project.images}
+              projectTitle={project.title}
+            />
           )}
 
           <div className={styles.projectContent}>

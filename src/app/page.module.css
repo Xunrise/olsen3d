@@ -346,11 +346,10 @@ a.secondary {
   padding: 4rem 0;
 }
 .serviceGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   margin-top: 2rem;
-  justify-items: center;
   justify-content: center;
   max-width: 1200px;
   margin-left: auto;
@@ -362,9 +361,8 @@ a.secondary {
   overflow: hidden;
   box-shadow: 0 4px 6px var(--shadow-color);
   transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
+  width: 350px;
+  flex-shrink: 0;
   animation: fadeInUp 0.6s ease-out backwards;
 }
 .serviceCard:hover {
@@ -594,8 +592,12 @@ a.secondary {
   opacity: 0.9;
 }
 @media (max-width: 992px) {
-  .serviceGrid, .portfolioGrid {
+  .portfolioGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .serviceCard {
+    width: 280px;
   }
 }
 @media (max-width: 768px) {
@@ -630,8 +632,13 @@ a.secondary {
   }
 }
 @media (max-width: 480px) {
-  .serviceGrid, .portfolioGrid {
+  .portfolioGrid {
     grid-template-columns: 1fr;
+  }
+
+  .serviceCard {
+    width: 100%;
+    max-width: 400px;
   }
 }
 .themeToggle {
@@ -1013,23 +1020,225 @@ a.secondary {
 }
 
 .projectGallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin: 3rem 0;
+  justify-content: center;
 }
 
 .galleryImage {
+  width: 200px;
+  flex-shrink: 0;
   background-color: var(--card-bg);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px var(--shadow-color);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+}
+
+.galleryImage:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.galleryImageInner {
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
 }
 
 .galleryImage img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
+}
+
+.imageCaption {
+  padding: 0.75rem;
+  text-align: center;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  font-weight: 500;
+  background-color: var(--card-bg);
+}
+
+/* ===== Lightbox Styles ===== */
+
+/* Lightbox Backdrop */
+.lightboxBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Lightbox Container */
+.lightboxContent {
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Image Container */
+.lightboxImageContainer {
+  width: 90vw;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image Display */
+.lightboxImage {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Top Controls Bar */
+.lightboxTopBar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1001;
+}
+
+/* Navigation Controls */
+.lightboxControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1600px;
+  padding: 1rem;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+/* Button Styles */
+.lightboxButton {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--text-color);
+  flex-shrink: 0;
+}
+
+.lightboxButton:hover:not(:disabled) {
+  background: var(--section-bg);
+  transform: scale(1.1);
+}
+
+.lightboxButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.lightboxCloseButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.lightboxCloseButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Image Counter & Title */
+.lightboxInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.imageCounter {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.lightboxTitle {
+  color: white;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .projectGallery {
+    gap: 0.75rem;
+  }
+
+  .galleryImage {
+    width: 150px;
+    height: 180px;
+  }
+
+  .imageCaption {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .lightboxButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightboxControls {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .imageCounter,
+  .lightboxTitle {
+    font-size: 0.9rem;
+  }
+
+  .lightboxImageContainer {
+    width: 95vw;
+    height: 75vh;
+  }
 }
 
 .projectContent {
