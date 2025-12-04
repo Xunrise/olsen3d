@@ -14,12 +14,20 @@ export default function Contact() {
     const data = new FormData(form);
 
     try {
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || '/api/contact';
+      const response = await fetch(endpoint, {
         method: 'POST',
-        body: data,
         headers: {
-          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          subject: data.get('subject'),
+          message: data.get('message'),
+          honeypot: data.get('_honeypot'),
+        }),
       });
 
       if (response.ok) {
@@ -77,6 +85,15 @@ export default function Contact() {
                 <label htmlFor="message">Melding</label>
                 <textarea id="message" name="message" rows={5} required />
               </div>
+
+              {/* Honeypot field for spam prevention - hidden from users */}
+              <input
+                type="text"
+                name="_honeypot"
+                style={{ display: 'none' }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
 
               {status === 'success' && (
                 <div className={styles.successMessage}>
